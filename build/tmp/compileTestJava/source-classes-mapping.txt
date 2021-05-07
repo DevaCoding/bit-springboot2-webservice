@@ -1,2 +1,14 @@
+com/example/web/springboot/web/PostsApiControllerTest.java
+ com.example.web.springboot.web.PostsApiControllerTest
+com/example/web/springboot/web/ProfileControllerTest.java
+ com.example.web.springboot.web.ProfileControllerTest
+com/example/web/springboot/web/dto/HelloResponseDtoTest.java
+ com.example.web.springboot.web.dto.HelloResponseDtoTest
+com/example/web/springboot/web/IndexControllerTest.java
+ com.example.web.springboot.web.IndexControllerTest
+com/example/web/springboot/domain/posts/PostsRepositoryTest.java
+ com.example.web.springboot.domain.posts.PostsRepositoryTest
+com/example/web/springboot/web/ProfileControllerUnitTest.java
+ com.example.web.springboot.web.ProfileControllerUnitTest
 com/example/web/springboot/web/HelloControllerTest.java
  com.example.web.springboot.web.HelloControllerTest

@@ -1,15 +1,17 @@
 package com.example.web.springboot.web;
 
 //import com.example.web.springboot.config.auth.SecurityConfig;
-import org.junit.Test;
-import org.junit.runner.RunWith;
+import com.example.web.springboot.config.auth.CustomOAuth2UserService;
+import com.example.web.springboot.config.auth.SecurityConfig;
+import lombok.RequiredArgsConstructor;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.FilterType;
 import org.springframework.security.test.context.support.WithMockUser;
-import org.springframework.test.context.ContextConfiguration;
-import org.springframework.test.context.junit4.SpringRunner;
+import org.springframework.test.context.junit.jupiter.SpringExtension;
 import org.springframework.test.web.servlet.MockMvc;
 
 import static org.hamcrest.Matchers.is;
@@ -18,16 +20,19 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
-@RunWith(SpringRunner.class)
-@WebMvcTest(controllers = HelloController.class, secure = false) //, excludeFilters = {@ComponentScan.Filter(type = FilterType.ASSIGNABLE_TYPE, classes = SecurityConfig.class)}
-//)
-@ContextConfiguration
+@ExtendWith(SpringExtension.class)
+@WebMvcTest(controllers = HelloController.class,
+        excludeFilters = {
+                @ComponentScan.Filter(type = FilterType.ASSIGNABLE_TYPE, classes = SecurityConfig.class)
+        }
+)
 public class HelloControllerTest {
 
     @Autowired
     private MockMvc mvc;
 
-    //@WithMockUser(roles="USER")
+
+    @WithMockUser(roles="USER")
     @Test
     public void returnHello() throws Exception {
         String hello = "hello";
